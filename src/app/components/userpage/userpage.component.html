@@ -1,0 +1,13 @@
+<div id="full-cover-background" class="flex h-full bg-grey items-center justify-center">
+    <div id="centered-block" class="bg-white flex-col p-7 rounded-2xl" >
+        <form [formGroup]="userGroup">
+            <mat-list>
+            @for(user of users; track user.id){
+                <mat-list-item>
+                    {{user.firstName}}
+                </mat-list-item>
+            }
+            </mat-list>
+        </form>
+    </div>
+</div>

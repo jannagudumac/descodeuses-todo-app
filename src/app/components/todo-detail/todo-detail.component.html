@@ -1,0 +1,67 @@
+<!--Form cannot be null because it is initialised at the moment of subscribe which is asynchronous-->
+
+@if(formGroup !=null){
+<div
+  id="full-cover-background"
+  class="flex h-full bg-gray-100 items-center justify-center"
+>
+  <mat-card id="centered-block" class="bg-white p-6 rounded-xl shadow-md">
+    <mat-card-header>
+      <mat-card-title>Edit Todo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="mt-5" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div id="title-container">
+          <mat-form-field class="w-60">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+          </mat-form-field>
+        </div>
+        <div id="priority-container">
+          <mat-form-field class="w-60">
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+              @for (item of listPriority; track item.value){
+              <mat-option [value]="item.value">{{ item.text }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div id="datepicker-container">
+          <mat-form-field class="w-60">
+            <mat-label>Choose a date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="dueDate"
+            />
+
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+      <div id="description-container" >
+        <mat-form-field class="w-60">
+          <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+        <mat-checkbox formControlName="completed">Completed</mat-checkbox>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">Save</button>
+          <button mat-button type="button" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+}
