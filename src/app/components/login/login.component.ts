@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // @ is for decorator
 // decorates the class component, goes right before the class
@@ -22,9 +23,9 @@ export class LoginComponent implements OnInit /*interface*/ {
   //private in front of formBuilder to make the variable accessible outside of the constructor
   //to do that we add what we need in the parametres
 
-  constructor(private formBuilder : FormBuilder)
-  {
-    
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    //this.formBuilder = new FormBuilder(); //not needed, Angular does it automatically
+
   }
 
   ngOnInit(): void {
@@ -35,12 +36,18 @@ export class LoginComponent implements OnInit /*interface*/ {
       password: ['', [Validators.required]]
     });
   }
-  onSubmit(){
-    if(this.loginForm.valid){
+  onSubmit() {
+    if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       console.log(this.loginForm.value.username);
       //this gives undefined because there's not other username
       console.log(this.loginForm.value.username2);
+
+      //AUTHENTICATION
+      if (this.loginForm.value.username == 'admin@test.com' && this.loginForm.value.password == 'admin') {
+        sessionStorage.setItem('isLoggedIn', 'true');
+        this.router.navigateByUrl('');
+      }
     }
   }
 }

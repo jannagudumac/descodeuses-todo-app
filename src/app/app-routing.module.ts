@@ -8,6 +8,7 @@ import { UserpageComponent } from './components/userpage/userpage.component';
 import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
 import { TodoTableComponent } from './components/todo-table/todo-table.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { authGuard } from './auth/auth.guard';
 
 /*path: link introduced to the nav bar
   component: component linked to this path*/
@@ -16,26 +17,26 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'profile', component: ProfileComponent
+    path: 'profile', component: ProfileComponent, canActivate: [authGuard] 
   },
   {
     path: 'signup', component: SignUpComponent
   },
   
   {
-    path: 'todo-list', component: TodoListComponent
+    path: 'todo-list', component: TodoListComponent, canActivate: [authGuard] 
   },
   {
-    path: 'userpage', component: UserpageComponent
+    path: 'userpage', component: UserpageComponent, canActivate: [authGuard] 
   },
   {
-    path: 'todo-detail/:id', component: TodoDetailComponent
+    path: 'todo-detail/:id', component: TodoDetailComponent, canActivate: [authGuard] 
   },
   {
-    path: 'todo-table', component: TodoTableComponent
+    path: 'todo-table', component: TodoTableComponent, canActivate: [authGuard] 
   },
   { //path to the index (main page), by default
-    path: '', component: DashboardComponent
+    path: '', component: DashboardComponent, canActivate: [authGuard] 
   }
 ];
 
