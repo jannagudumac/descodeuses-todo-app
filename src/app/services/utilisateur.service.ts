@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class UtilisateurService {
   private apiURL : string = 'api/utilisateurs'
   constructor(private http: HttpClient) { }
-
+ 
   getUtilisateurs(){
     return this.http.get<Utilisateur>(this.apiURL);
   }

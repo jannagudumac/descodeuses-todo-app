@@ -24,14 +24,14 @@ export class TodoService {
   }
 
   //R
-  //Fetch list
+  //Fetch all items
   getTodos(){
     //HTTP GET without the second parameter because there's no body
     return this.http.get<Todo[]>(this.apiURL);
   }
 
   //R
-  //Fetch one item
+  //Fetch one item using its id
   getTodo(id : number) {
     return this.http.get<Todo>(this.apiURL + '/' + id);
   }

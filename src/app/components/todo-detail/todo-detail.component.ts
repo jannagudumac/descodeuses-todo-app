@@ -55,7 +55,7 @@ export class TodoDetailComponent implements OnInit {
     //this.formGroup = this.fb...
   }
 
-  onSubmit() {
+  onSave() {
     //test if the form is valid
     if (this.formGroup.valid) {
       this.todoService.updateTodo(this.formGroup.value).subscribe(data => {

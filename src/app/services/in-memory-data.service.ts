@@ -12,7 +12,7 @@ import { Utilisateur } from '../models/utilisateur.model';
 //prerequis en terminal:
 //npm i angular-in-memory-web-api@0.19.0
 //ng g service in-memory-data
-export class InMemoryDataService implements InMemoryDataService {
+export class InMemoryDataService {
 
   constructor() { }
   
