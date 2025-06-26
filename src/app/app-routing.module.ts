@@ -17,26 +17,26 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'profile', component: ProfileComponent, canActivate: [authGuard] 
+    path: 'profile', component: ProfileComponent, canActivate: [authGuard]
   },
   {
     path: 'signup', component: SignUpComponent
   },
-  
+
   {
-    path: 'todo-list', component: TodoListComponent, canActivate: [authGuard] 
+    path: 'todo-list', component: TodoListComponent, canActivate: [authGuard]
   },
   {
-    path: 'userpage', component: UserpageComponent, canActivate: [authGuard] 
+    path: 'userpage', component: UserpageComponent, canActivate: [authGuard]
   },
   {
-    path: 'todo-detail/:id', component: TodoDetailComponent, canActivate: [authGuard] 
+    path: 'todo-detail/:id', component: TodoDetailComponent, canActivate: [authGuard]
   },
   {
-    path: 'todo-table', component: TodoTableComponent, canActivate: [authGuard] 
+    path: 'todo-table', component: TodoTableComponent, canActivate: [authGuard]
   },
   { //path to the index (main page), by default
-    path: '', component: DashboardComponent, canActivate: [authGuard] 
+    path: '', component: DashboardComponent, canActivate: [authGuard]
   }
 ];
 
